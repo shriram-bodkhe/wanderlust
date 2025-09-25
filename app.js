@@ -32,18 +32,7 @@ main().then(()=>{
 });
 
 async function main() {
-    try {
-        await mongoose.connect(dbUrl, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 10000 // 10 sec timeout
-        });
-        console.log("✅ Connected to MongoDB Atlas successfully!");
-    } catch (err) {
-        console.error("❌ MongoDB connection failed!");
-        console.error("Error details:", err.message);
-        process.exit(1); // stop server if DB is not connected
-    }
+    await mongoose.connect(dbUrl);
 }
 
 
